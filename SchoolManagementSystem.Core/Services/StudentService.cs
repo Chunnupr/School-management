@@ -1,0 +1,52 @@
+using Microsoft.EntityFrameworkCore;
+using SchoolManagementSystem.Core.Data;
+using SchoolManagementSystem.Core.Interfaces;
+using SchoolManagementSystem.Core.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace SchoolManagementSystem.Core.Services
+{
+    public class StudentService : IStudentService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public StudentService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<Student> CreateStudentAsync(Student student)
+        {
+            _context.Students.Add(student);
+            await _context.SaveChangesAsync();
+            return student;
+        }
+
+        public async Task DeleteStudentAsync(int id)
+        {
+            var student = await _context.Students.FindAsync(id);
+            if (student != null)
+            {
+                _context.Students.Remove(student);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<Student> GetStudentByIdAsync(int id)
+        {
+            return await _context.Students.FindAsync(id);
+        }
+
+        public async Task<ICollection<Student>> GetStudentsAsync()
+        {
+            return await _context.Students.ToListAsync();
+        }
+
+        public async Task UpdateStudentAsync(Student student)
+        {
+            _context.Entry(student).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+    }
+}
