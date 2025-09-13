@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SchoolManagementSystem.Views.ManagementSetupPage"
+             Title="Initial School Setup">
+    <VerticalStackLayout Spacing="20" Padding="30">
+        <Label
+            Text="School Setup"
+            FontSize="Header"
+            HorizontalOptions="Center" />
+
+        <Entry
+            Placeholder="Enter School Name"
+            Text="{Binding SchoolName}"
+            FontSize="Large" />
+
+        <Image
+            Source="{Binding LogoImageSource}"
+            HeightRequest="150"
+            WidthRequest="150"
+            Aspect="AspectFit"
+            BackgroundColor="LightGray" />
+
+        <Button
+            Text="Upload Logo"
+            Command="{Binding UploadLogoCommand}"
+            HorizontalOptions="Fill" />
+
+        <Button
+            Text="Save Setup"
+            Command="{Binding SaveSetupCommand}"
+            HorizontalOptions="Fill" />
+
+        <Button
+            Text="Manage Students"
+            Command="{Binding NavigateToStudentListCommand}"
+            HorizontalOptions="Fill"
+            Margin="0,20,0,0" />
+    </VerticalStackLayout>
+</ContentPage>

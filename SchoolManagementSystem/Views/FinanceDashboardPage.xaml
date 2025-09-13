@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SchoolManagementSystem.Views.FinanceDashboardPage"
+             Title="Finance">
+    <VerticalStackLayout Spacing="20" Padding="30">
+        <Label
+            Text="Finance Dashboard"
+            FontSize="Header"
+            HorizontalOptions="Center" />
+        <Label
+            Text="This page will contain financial summaries and fee management tools."
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
